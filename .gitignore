@@ -4,7 +4,6 @@
 
 # Occlum / SGX build artifacts
 ocalls/target/
-src/sys/mod.rs
 
 # Cargo lock files (optional: ignore for libraries)
 /Cargo.lock

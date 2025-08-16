@@ -9,6 +9,7 @@ This project provides a `build.rs` script to generate **Rust FFI bindings specif
 
 ```bash
 cargo build --features bindgen
+```
 
 - To overwrite bindings into the repository (e.g., src/sys/mod.rs), also enable the overwrite feature:
 
