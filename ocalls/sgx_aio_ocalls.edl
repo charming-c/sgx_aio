@@ -1,0 +1,37 @@
+enclave {
+    untrusted {
+        int ocall_aio_io_setup_syscall(
+            long syscall_code,
+            long maxevents,
+            [user_check] void** ctxp
+        );
+        int ocall_aio_io_destroy_syscall(
+            long syscall_code, 
+            [user_check] void* ctx
+        );
+        int ocall_aio_io_submit_syscall(
+            long syscall_code,
+            [user_check] void* ctx,
+            long nr,
+            [user_check] void** iocb
+        );
+        int ocall_aio_io_cancel_syscall(
+            long syscall_code, 
+            [user_check] void* ctx,
+            [in, out, size = iocb_size] void* iocb,
+            long iocb_size,
+            [in, out, size = evt_size] void* evt,
+            long evt_size
+        );
+        int ocall_aio_io_getevents_syscall(
+            long syscall_code, 
+            [user_check] void* ctx,
+            long min_nr,
+            long nr,
+            [in, out, count=nr, size=event_size] void* events,
+            long event_size,
+            [in, out, size = time_size] void* timeout,
+            long time_size
+        );
+    };
+};
